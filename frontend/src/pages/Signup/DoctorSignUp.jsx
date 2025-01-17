@@ -18,18 +18,18 @@ const DoctorSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('/api/users/register', {
-        ...formData,
-        role: 'doctor',
-      });
-      console.log('Signup successful:', response.data);
-      setMessage('Registration successful! Redirecting to login...');
-      setTimeout(() => navigate('/login/doctor'), 3000); // Redirect to doctor login page after 3 seconds
-    } catch (error) {
-      console.error('Signup error:', error);
-      setMessage('Registration failed. Please try again.');
-    }
+    // try {
+    //   const response = await axios.post('/api/users/register', {
+    //     ...formData,
+    //     role: 'doctor',
+    //   });
+    //   console.log('Signup successful:', response.data);
+    //   setMessage('Registration successful! Redirecting to login...');
+    //   setTimeout(() => navigate('/login/doctor'), 3000); // Redirect to doctor login page after 3 seconds
+    // } catch (error) {
+    //   console.error('Signup error:', error);
+    //   setMessage('Registration failed. Please try again.');
+    // }
   };
 
   return (

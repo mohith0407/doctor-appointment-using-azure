@@ -22,13 +22,13 @@ const App = () => (
         <Route path="/login/admin" element={<AdminLogin />} />
         <Route path="/login/doctor" element={<DoctorLogin />} />
         <Route path="/login/patient" element={<PatientLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
-        <Route path="/patient/dashboard" element={<PatientDashboard />} />
+        {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
+        {/* <Route path="/doctor/dashboard" element={<DoctorDashboard />} /> */}
+        {/* <Route path="/patient/dashboard" element={<PatientDashboard />} /> */}
         <Route path="/signup/patient" element={<PatientSignup />} />
         <Route path="/signup/doctor" element={<DoctorSignup />} />
         <Route path="/signup/admin" element={<AdminSignup />} />
-        <Route path="/patient/book-appointment" element={<BookAppointment />} />
+        {/* <Route path="/patient/book-appointment" element={<BookAppointment />} /> */}
       </Routes>
     </AuthProvider>
   </Router>

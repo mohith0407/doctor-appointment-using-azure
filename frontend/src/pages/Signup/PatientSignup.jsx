@@ -18,19 +18,19 @@ const PatientSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      console.error('Passwords do not match');
-      return;
-    }
-    try {
-      // Exclude confirmPassword from the request payload
-      const { confirmPassword, ...dataWithoutConfirmPassword } = formData;
-      const dataWithRole = { ...dataWithoutConfirmPassword, role: 'patient' };
-      await axios.post('/api/users/register', dataWithRole);
-      navigate('/patient/dashboard');
-    } catch (error) {
-      console.error('Signup error:', error);
-    }
+    // if (formData.password !== formData.confirmPassword) {
+    //   console.error('Passwords do not match');
+    //   return;
+    // }
+    // try {
+    //   // Exclude confirmPassword from the request payload
+    //   const { confirmPassword, ...dataWithoutConfirmPassword } = formData;
+    //   const dataWithRole = { ...dataWithoutConfirmPassword, role: 'patient' };
+    //   await axios.post('/api/users/register', dataWithRole);
+    //   navigate('/patient/dashboard');
+    // } catch (error) {
+    //   console.error('Signup error:', error);
+    // }
   };
 
   return (

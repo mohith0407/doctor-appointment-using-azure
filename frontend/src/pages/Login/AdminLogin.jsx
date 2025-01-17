@@ -8,11 +8,11 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await login(email, password);
-    } catch (error) {
-      console.error('Login error:', error);
-    }
+    // try {
+    //   await login(email, password);
+    // } catch (error) {
+    //   console.error('Login error:', error);
+    // }
   };
 
   return (

@@ -17,18 +17,18 @@ const AdminSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('/api/users/register', {
-        ...formData,
-        role: 'admin',
-      });
-      console.log('Signup successful:', response.data);
-      setMessage('Registration successful! Redirecting to login...');
-      setTimeout(() => navigate('/login/admin'), 3000); // Redirect after 3 seconds
-    } catch (error) {
-      console.error('Signup error:', error);
-      setMessage('Registration failed. Please try again.');
-    }
+    // try {
+    //   const response = await axios.post('/api/users/register', {
+    //     ...formData,
+    //     role: 'admin',
+    //   });
+    //   console.log('Signup successful:', response.data);
+    //   setMessage('Registration successful! Redirecting to login...');
+    //   setTimeout(() => navigate('/login/admin'), 3000); // Redirect after 3 seconds
+    // } catch (error) {
+    //   console.error('Signup error:', error);
+    //   setMessage('Registration failed. Please try again.');
+    // }
   };
 
   return (
