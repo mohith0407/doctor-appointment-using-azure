@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "queueMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "appointment-notifications",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+} 
