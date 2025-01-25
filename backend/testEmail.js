@@ -12,7 +12,7 @@ async function testEmailService() {
         html: "<h1>This is a test email</h1><p>If you receive this, email service is working!</p>"
       },
       recipients: {
-        to: [{ address: "aakash.cd.meta@gmail.com" }]
+        to: [{ address: "mohith.cd.meta@gmail.com" }]
       }
     };
 
