@@ -1,70 +1,62 @@
-# 🩺 DoctMent - Doctor Appointment Management System
+# 🩺 DoctMent – Doctor Appointment Management System
 
-DoctMent is a **full-stack doctor appointment management application** that enables users to book appointments, doctors to manage schedules, and admins to oversee the platform.  
-Built with **Node.js (Express)** for the backend and **React (Vite + Tailwind CSS)** for the frontend.
+**DoctMent** is a cloud-native healthcare platform designed to streamline patient-doctor scheduling. It leverages a hybrid architecture combining **Express.js** for core API logic and **Azure Functions** for asynchronous event processing (notifications, queue handling).
 
 ---
 
-## 📂 Project Structure
-```plaintext
-## 📂 Project Structure
+## Tech Stack
 
+| Domain | Technologies |
+| :--- | :--- |
+| **Frontend** | React (Vite), Tailwind CSS, Context API |
+| **Backend** | Node.js, Express.js |
+| **Serverless** | Azure Functions, Azure Queue Storage |
+| **Database** | Azure SQL |
+
+---
+
+## System Workflows
+
+### 1. Patient Booking Flow
+Asynchronous processing of appointment requests via Azure Queue.
+![Patient Booking Flow](patient-booking-flow.png)
+
+### 2. Doctor Status Update Flow
+Event-driven updates triggering patient notifications.
+![Doctor Update Status Flow](doctor-update-status-flow.png)
+
+
+---
+
+## 📂 Project Architecture
+
+The project adopts a structured Monorepo approach, distinctively separating core API logic from serverless background workers.
+
+```text
 DoctMent/
 │
-├── backend/                        # Backend API (Node.js + Express)
-│   ├── .azure/                      # Azure deployment configurations
-│   ├── config.yml                   # Backend config file
-│   ├── .github/workflows/           # GitHub Actions CI/CD workflows
+├── backend/                    # Core API & Serverless Logic
+│   ├── functions/              # Azure Functions (Async Triggers)
+│   ├── routes/                 # REST API Endpoints (Admin, Doctor, Auth)
+│   ├── middleware/             # JWT Auth & Error Handling
+│   ├── utils/                  # Services (Email, Azure Queue SDK)
+│   ├── config/                 # DB & Environment Configuration
+│   └── server.js               # Entry Point
 │
-│   ├── functions/                   # Azure Functions for async processing
-│   ├── AppointmentNotifications/    # Appointment notification handlers
-│   ├── ProcessAppointment/          # Appointment processing logic
-│   ├── ProcessAppointmentNotifications/  # Processing appointment notifications
-│   ├── ProcessAppointmentQueue/     # Queue processing for appointments
-│   ├── ProcessNotifications/        # General notification processing
+├── frontend/                   # Client Application
+│   ├── src/
+│   │   ├── components/         # Reusable UI Elements
+│   │   ├── context/            # Global State Management
+│   │   ├── pages/              # Application Views
+│   │   └── utils/              # Client-side Helpers
+│   └── vite.config.js          # Bundler Config
 │
-│   ├── middleware/                  # Express middlewares
-│
-│   ├── routes/                      # API routes
-│   │   ├── adminRoutes.js           # Admin-specific routes
-│   │   ├── appointmentRoutes.js     # Appointment-related routes
-│   │   ├── authRoutes.js            # Authentication routes
-│   │   ├── doctorRoutes.js          # Doctor-related routes
-│   │   └── userRoutes.js            # User-related routes
-│
-│   ├── test/                        # Backend test cases
-│
-│   ├── utils/                       # Utility functions/services
-│   │   ├── emailService.js          # Email sending logic
-│   │   └── queueService.js          # Azure queue handling
-│
-│   ├── .env.example                 # Example environment variables
-│   ├── connectDB.js                 # MongoDB connection setup
-│   ├── dbConfig.js                  # Database configuration
-│   ├── logger.js                    # Logging service
-│   ├── server.js                    # Express app entry point
-│   ├── package.json                 # Backend dependencies & scripts
-│   └── ...                          # Other backend files
-│
-└── frontend/                        # Frontend UI (React + Vite)
-    ├── src/
-    │   ├── assets/                  # Static assets (images, icons)
-    │   ├── components/              # Reusable UI components
-    │   ├── context/                 # Context API state management
-    │   ├── pages/                   # Page components
-    │   ├── styles/                  # Tailwind/global styles
-    │   ├── utils/                   # Helper functions
-    │   ├── App.jsx                  # Main app component
-    │   ├── main.jsx                 # React entry point
-    │   └── index.css                # Global styles
-    ├── package.json                 # Frontend dependencies & scripts
-    └── ...                          # Other frontend files
-
+└── .github/workflows/          # CI/CD Pipelines for further enhancement
 ```
 
 ---
 
-## 🚀 Features
+## Features
 
 - **User Authentication** (JWT-based)
 - **Role Management** (Admin, Doctor, Patient)
@@ -85,49 +77,22 @@ DoctMent/
 
 **Backend:**
 - Node.js + Express
-- MongoDB / Azure SQL (depending on configuration)
+- Azure SQL
 - Azure Functions for async processing
 - Nodemailer for email notifications
 
 ---
 
 ## ⚙️ Installation & Setup
-
-### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/doctment.git
+1 git clone https://github.com/mohith0407/doctor-appointment-using-azure.git
 cd doctment
-2️⃣ Backend Setup
+2️ Backend Setup
 cd backend
 npm install
 cp .env.example .env   # Configure environment variables
 npm run dev            # Start in development mode
-3️⃣ Frontend Setup
+3️ Frontend Setup
 cd frontend
 npm install
 npm run dev            # Start Vite development server
-📬 Environment Variables
-Backend (backend/.env):
-PORT=5000
-MONGO_URI=your_mongodb_connection
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_password
-AZURE_STORAGE_CONNECTION_STRING=your_connection_string
-Frontend (frontend/.env):
-
-VITE_API_URL=http://localhost:5000/api
-📜 Scripts
-Backend:
-
-npm run dev – Start in development mode
-
-npm start – Start in production mode
-
-Frontend:
-
-npm run dev – Start local dev server
-
-npm run build – Build production-ready files
-
-npm run preview – Preview production build
