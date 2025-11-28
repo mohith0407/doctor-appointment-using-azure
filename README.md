@@ -68,22 +68,8 @@ DoctMent/
 
 ---
 
-## 🛠️ Tech Stack
 
-**Frontend:**
-- React (Vite)
-- Tailwind CSS
-- Context API
-
-**Backend:**
-- Node.js + Express
-- Azure SQL
-- Azure Functions for async processing
-- Nodemailer for email notifications
-
----
-
-## ⚙️ Installation & Setup
+## Installation & Setup
 ```bash
 1 git clone https://github.com/mohith0407/doctor-appointment-using-azure.git
 cd doctment
